@@ -6,9 +6,9 @@ import 'react-day-picker/dist/style.css';
 const AppoinmentBanner = ({ date, setDate }) => {
 
     return (
-        <div class="hero min-h-screen bg-white/[.85]" style={{ backgroundImage: `url(${chair})`, backgroundBlendMode: 'overlay' }}>
-            <div class="hero-content flex-col lg:flex-row-reverse">
-                <img src={chair} class="max-w-sm rounded-lg shadow-2xl" alt='chair' />
+        <div className="hero min-h-screen bg-white/[.85]" style={{ backgroundImage: `url(${chair})`, backgroundBlendMode: 'overlay' }}>
+            <div className="hero-content flex-col lg:flex-row-reverse">
+                <img src={chair} className="max-w-sm rounded-lg shadow-2xl" alt='chair' />
                 <div>
                     <DayPicker
                         mode="single"
