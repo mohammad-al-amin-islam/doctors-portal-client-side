@@ -9,10 +9,10 @@ import SignUp from './Pages/Login/SignUp';
 import Navbar from './Pages/Shared/Navbar';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Dashboard from './Dashboard/Dashboard';
-import MyReview from './Dashboard/MyReview';
-import MyAppoinment from './Dashboard/MyAppoinment';
-import MyHistory from './Dashboard/MyHistory';
+import MyAppoinment from './Pages/Dashboard/MyAppoinment';
+import Dashboard from './Pages/Dashboard/Dashboard';
+import MyReview from './Pages/Dashboard/MyReview';
+import MyHistory from './Pages/Dashboard/MyHistory';
 
 function App() {
   return (
