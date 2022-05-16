@@ -13,7 +13,7 @@ const MyAppoinment = () => {
             fetch(`http://localhost:5000/boking?email=${user.email}`, {
                 method: 'GET',
                 headers: {
-                    'authorization': `BEARER ${localStorage.getItem('accessToken')}`
+                    authorization: `BEARER ${localStorage.getItem('accessToken')}`
                 }
             })
                 .then(res => {
@@ -27,10 +27,10 @@ const MyAppoinment = () => {
                 })
                 .then(data => setAppointments(data));
         }
-    }, [user])
+    }, [user, navigate])
     return (
-        <div class="overflow-x-auto">
-            <table class="table w-full">
+        <div className="overflow-x-auto">
+            <table className="table w-full">
 
                 <thead>
                     <tr>
