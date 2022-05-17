@@ -10,7 +10,7 @@ const MyAppoinment = () => {
     const navigate = useNavigate()
     useEffect(() => {
         if (user) {
-            fetch(`http://localhost:5000/boking?email=${user.email}`, {
+            fetch(`https://nameless-scrubland-24240.herokuapp.com/boking?email=${user.email}`, {
                 method: 'GET',
                 headers: {
                     authorization: `BEARER ${localStorage.getItem('accessToken')}`

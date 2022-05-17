@@ -5,7 +5,7 @@ import User from './User';
 
 const AllUser = () => {
 
-    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('http://localhost:5000/user', {
+    const { data: users, isLoading, refetch } = useQuery('users', () => fetch('https://nameless-scrubland-24240.herokuapp.com/user', {
         method: 'GET',
         headers: {
             authorization: `BEARER ${localStorage.getItem('accessToken')}`

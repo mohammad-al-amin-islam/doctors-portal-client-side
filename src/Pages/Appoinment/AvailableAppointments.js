@@ -13,12 +13,12 @@ const AvailableAppointments = ({ date }) => {
     const formatDate = format(date, 'PP');
 
     // useEffect(() => {
-    //     fetch(`http://localhost:5000/available?date=${formatDate}`)
+    //     fetch(`https://nameless-scrubland-24240.herokuapp.com/available?date=${formatDate}`)
     //         .then(res => res.json())
     //         .then(data => setServices(data))
     // }, [formatDate]);
 
-    const { data: services, isLoading, refetch } = useQuery(['available', formatDate], () => fetch(`http://localhost:5000/available?date=${formatDate}`).then(res => res.json())
+    const { data: services, isLoading, refetch } = useQuery(['available', formatDate], () => fetch(`https://nameless-scrubland-24240.herokuapp.com/available?date=${formatDate}`).then(res => res.json())
     )
 
     if (isLoading) {
