@@ -20,7 +20,7 @@ const BookingModal = ({ treatment, date, setTreatment, refetch }) => {
             patientName: user.displayName,
             number: event.target.number.value
         }
-        fetch('https://nameless-scrubland-24240.herokuapp.com/booking', {
+        fetch('http://localhost:5000/booking', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
