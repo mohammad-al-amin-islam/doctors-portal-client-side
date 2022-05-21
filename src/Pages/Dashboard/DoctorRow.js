@@ -1,5 +1,4 @@
 import React from 'react';
-import { toast } from 'react-toastify';
 
 const DoctorRow = ({ doctor, index, refetch, setDeleteItem }) => {
     const { name, img, speciality } = doctor;
