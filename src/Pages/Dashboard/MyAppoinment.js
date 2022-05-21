@@ -44,7 +44,7 @@ const MyAppoinment = () => {
                 </thead>
                 <tbody>
                     {
-                        appoinments.map((appoinment, index) => <tr>
+                        appoinments.map((appoinment, index) => <tr key={appoinment._id}>
                             <th>{index + 1}</th>
                             <td>{appoinment.patientName}</td>
                             <td>{appoinment.date}</td>

@@ -7,8 +7,8 @@ const CheckoutForm = ({ booking }) => {
     const [cardError, setCardError] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
     const [clientSecret, setClientSecret] = useState("");
-    const [transaction, setTransaction] = useState("");
-    const { price, patientName, patientEmail } = booking;
+    const [transactionId, setTransactionId] = useState("");
+    const { _id, price, patientName, patientEmail } = booking;
     useEffect(() => {
         fetch('http://localhost:5000/create-payment-intent', {
             method: 'POST',
@@ -65,8 +65,25 @@ const CheckoutForm = ({ booking }) => {
         }
         else {
             setCardError('');
-            setTransaction(paymentIntent.id);
+            setTransactionId(paymentIntent.id);
             setSuccessMsg('Successfully paid the ammount');
+            //store payment on db
+            const paymentInfo = {
+                paymentFor: _id,
+                transactionId: paymentIntent.id
+            }
+            fetch(`http://localhost:5000/booking/${_id}`, {
+                method: 'PATCH',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `BEARER ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(paymentInfo)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                })
         }
     }
     return (
@@ -95,7 +112,7 @@ const CheckoutForm = ({ booking }) => {
             {cardError && <p className="text-red-500">{cardError}</p>}
             {successMsg && <div>
                 <p className="text-green-500">{successMsg}</p>
-                <p className="text-green-500">Your transaction id is: <span className='font-bold'>{transaction}</span></p>
+                <p className="text-green-500">Your transaction id is: <span className='font-bold'>{transactionId}</span></p>
             </div>}
         </>
     );
